@@ -97,7 +97,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div style=\"background-color: #000; padding-bottom: 100px\">\r\n  <!-- Beast kill message: -->\r\n  <font color=\"#BBBBFF\"> <!-- Maybe random? -->\r\n    <font color=\"#FCFF11\">\r\n      <a style=\"color: #C89468;cursor:pointer;\" name=\"pmMakooly\">Makoolyj</a>\r\n      has slain the mega beast at 233,Sky,288!\r\n    </font>\r\n  </font>\r\n  <br />\r\n\r\n  <!-- Beast summon message: -->\r\n  <font color=\"#FF6666\"> <!-- Maybe random? -->\r\n    <font color=\"#FCFF11\">\r\n      <a style=\"color: #C89468;cursor:pointer;\" name=\"pmTurd+Collector\">Turd Collector</a>\r\n      has awoken a beast near 233,Sky,288!!!\r\n    </font>\r\n  </font>\r\n  <br />\r\n\r\n  <!-- Purple system message: -->\r\n  <font color=\"#CC00CC\">\r\n    <a style=\"color: #C89468;cursor:pointer;\" name=\"pm\"></a>\r\n    Your blessed treasury at 026,For,268 has gained 20,523mil interest in the last 17 hours.  Total: 2,590,525\r\n  </font>\r\n</div>\r\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<div style=\"background-color: #000; padding-bottom: 100px\">\r\n  <ng-container *ngTemplateOutlet=\"kill; context: { name: 'Makoolyj', location: '115,Sur,299' }\"></ng-container>\r\n  <ng-container *ngTemplateOutlet=\"summon; context: { name: 'Turd Collector', location: '117,Sur,299' }\"></ng-container>\r\n  <ng-container *ngTemplateOutlet=\"kill; context: { name: 'Makoolyj', location: '114,For,196' }\"></ng-container>\r\n  <ng-container *ngTemplateOutlet=\"summon; context: { name: 'Turd Collector', location: '113,For,197' }\"></ng-container>\r\n  <ng-container *ngTemplateOutlet=\"kill; context: { name: 'Makoolyj', location: '233,Sky,288' }\"></ng-container>\r\n  <ng-container *ngTemplateOutlet=\"summon; context: { name: 'Turd Collector', location: '233,Sky,288' }\"></ng-container>\r\n\r\n  <font color=\"#CC00CC\">\r\n    <a style=\"color: #C89468;cursor:pointer;\" name=\"pm\"></a>\r\n    Your blessed treasury at 026,For,268 has gained 20,523mil interest in the last 17 hours.  Total: 2,590,525\r\n  </font>\r\n</div>\r\n\r\n<ng-template #summon let-name=\"name\" let-location=\"location\">\r\n  <font color=\"#FF6666\">\r\n    <font color=\"#FCFF11\">\r\n      <a style=\"color: #C89468;cursor:pointer;\" name=\"pm{{ htmlName(name) }}\">{{ name }}</a>\r\n      has awoken a beast near {{ location }}!!!\r\n    </font>\r\n  </font>\r\n  <br />\r\n</ng-template>\r\n<ng-template #kill let-name=\"name\" let-location=\"location\">\r\n  <font color=\"#BBBBFF\">\r\n    <font color=\"#FCFF11\">\r\n      <a style=\"color: #C89468;cursor:pointer;\" name=\"pm{{ htmlName(name) }}\">{{ name }}</a>\r\n      has slain the mega beast at {{ location }}!\r\n    </font>\r\n  </font>\r\n  <br />\r\n</ng-template>\r\n");
 
 /***/ }),
 
@@ -762,6 +762,9 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let SandboxComponent = class SandboxComponent {
+    htmlName(name) {
+        return name.replace(/\s/g, '+');
+    }
 };
 SandboxComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
